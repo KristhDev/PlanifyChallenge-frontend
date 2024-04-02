@@ -1,7 +1,7 @@
 import { useSteps } from '../../../shared';
 
 export const ProgressBar = (): JSX.Element => {
-    const { currentStep } = useSteps();
+    const { currentStep, steps } = useSteps();
 
     return (
         <div className="flex flex-col">
@@ -10,7 +10,7 @@ export const ProgressBar = (): JSX.Element => {
             <div className="bg-neutral-400 rounded-lg h-8 w-full">
                 <div 
                     className="bg-indigo-600 rounded-lg h-8 duration-300"
-                    style={{ width: (currentStep.number / 4) * 100 + '%' }} 
+                    style={{ width: (currentStep.number / steps.length) * 100 + '%' }} 
                 />
             </div>
         </div>
