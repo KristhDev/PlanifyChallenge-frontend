@@ -1,16 +1,16 @@
 import { RouterProvider } from 'react-router-dom';
 
+/* Context */
+import { Provider } from './context';
+
 /* Router */
 import { rootRouter } from './router';
 
-/* Modules */
-import { MainLayout } from './modules/ui';
-
 const App = (): JSX.Element => {
   return (
-    <MainLayout>
+    <Provider>
       <RouterProvider router={ rootRouter } />
-    </MainLayout>
+    </Provider>
   );
 }
 
