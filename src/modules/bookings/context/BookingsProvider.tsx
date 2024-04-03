@@ -7,7 +7,7 @@ import { fetchApi } from '../../../api';
 import { BookingsContext, bookingsReducer } from './';
 
 /* Interfaces */
-import { BookingsState, Category, Service } from '../interfaces';
+import { BookingsState, Category, Service, TimeSlot } from '../interfaces';
 
 const INITIAL_STATE: BookingsState = {
     categories: [],
@@ -69,8 +69,10 @@ const BookingsProvider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
     const loadTimeSlotsOfSelectedService = useCallback(async (serviceId: number): Promise<void> => {
         try {
             setIsTimeSlotsOfSelectedServiceLoading(true);
-            console.log({ serviceId });
-            dispatch({ type: '[Bookings] Set time slots of selected service', payload: { timeSlots: [] } });
+
+            const timeSlots = await fetchApi<TimeSlot[]>(`/times-slots?serviceId=${ serviceId }`, { method: 'GET' });
+
+            dispatch({ type: '[Bookings] Set time slots of selected service', payload: { timeSlots } });
         } 
         catch (error) {
             console.error(error);
