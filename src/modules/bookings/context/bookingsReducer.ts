@@ -1,10 +1,11 @@
-import { BookingsState, Category, Service, TimeSlot } from '../interfaces';
+import { BookingsState, Category, SelectedTimeSlot, Service, TimeSlot } from '../interfaces';
 
 type BookingsAction = 
     | { type: '[Bookings] Set categories', payload: { categories: Category[] } }
     | { type: '[Bookings] Set is categories loading', payload: { isLoading: boolean } }
     | { type: '[Bookings] Set is time slots of selected service loading', payload: { isLoading: boolean } }
     | { type: '[Bookings] Set selected service', payload: { service: Service } }
+    | { type: '[Bookings] Set selected time slot', payload: { timeSlot: SelectedTimeSlot | null } }
     | { type: '[Bookings] Set time slots of selected service', payload: { timeSlots: TimeSlot[] } }
 
 /**
@@ -38,6 +39,12 @@ const bookingsReducer = (state: BookingsState, action: BookingsAction): Bookings
             return {
                 ...state,
                 selectedService: action.payload.service
+            }
+
+        case '[Bookings] Set selected time slot':
+            return {
+                ...state,
+                selectedTimeSlot: action.payload.timeSlot
             }
 
         case '[Bookings] Set time slots of selected service':

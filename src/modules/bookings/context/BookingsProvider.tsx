@@ -7,13 +7,14 @@ import { fetchApi } from '../../../api';
 import { BookingsContext, bookingsReducer } from './';
 
 /* Interfaces */
-import { BookingsState, Category, Service, TimeSlot } from '../interfaces';
+import { BookingsState, Category, SelectedTimeSlot, Service, TimeSlot } from '../interfaces';
 
 const INITIAL_STATE: BookingsState = {
     categories: [],
     isCategoriesLoading: true,
     isTimeSlotsOfSelectedServiceLoading: false,
     selectedService: null,
+    selectedTimeSlot: null,
     timeSlotsOfSelectedService: []
 }
 
@@ -26,6 +27,10 @@ const BookingsProvider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
 
     const setIsTimeSlotsOfSelectedServiceLoading = useCallback((isLoading: boolean): void => {
         dispatch({ type: '[Bookings] Set is time slots of selected service loading', payload: { isLoading } });
+    }, []);
+
+    const setSelectedTimeSlot = useCallback((timeSlot: SelectedTimeSlot | null): void => {
+        dispatch({ type: '[Bookings] Set selected time slot', payload: { timeSlot } });
     }, []);
 
     /**
@@ -96,12 +101,14 @@ const BookingsProvider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
         ...state,
         loadCategories,
         loadTimeSlotsOfSelectedService,
-        setSelectedService
+        setSelectedService,
+        setSelectedTimeSlot
     }), [
         state,
         loadCategories,
         loadTimeSlotsOfSelectedService,
-        setSelectedService
+        setSelectedService,
+        setSelectedTimeSlot
     ]);
 
     useEffect(() => {
@@ -113,6 +120,12 @@ const BookingsProvider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
         loadTimeSlotsOfSelectedService(state.selectedService.id);
 
     }, [ state.selectedService?.id ])
+
+    useEffect(() => {
+        if (!state.selectedService) return;
+        setSelectedTimeSlot(null);
+
+    }, [ state.selectedService?.id ]);
 
     return (
         <BookingsContext.Provider value={ store }>

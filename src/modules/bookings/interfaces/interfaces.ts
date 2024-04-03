@@ -8,7 +8,7 @@ export type Service = {
 export type TimeSlot = {
     serviceId: number;
     date: string;
-    availableTimeSlots: string[];
+    availableTimeslots: string[];
 }
 
 export type Category = {
@@ -16,11 +16,18 @@ export type Category = {
     services: Service[];
 }
 
+export type SelectedTimeSlot = {
+    serviceId: number;
+    date: string;
+    hour: string;
+}
+
 export interface BookingsState {
     categories: Category[];
     isCategoriesLoading: boolean;
     isTimeSlotsOfSelectedServiceLoading: boolean;
     selectedService: Service | null;
+    selectedTimeSlot: SelectedTimeSlot | null;
     timeSlotsOfSelectedService: TimeSlot[];
 }
 
@@ -28,4 +35,5 @@ export interface BookingsContextProps extends BookingsState {
     loadCategories: () => Promise<void>;
     loadTimeSlotsOfSelectedService: (serviceId: number) => Promise<void>;
     setSelectedService: (service: Service) => void;
+    setSelectedTimeSlot: (timeSlot: SelectedTimeSlot | null) => void;
 }
