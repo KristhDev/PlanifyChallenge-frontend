@@ -1,13 +1,19 @@
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 import { Button, ProgressBar } from '../../../ui';
+import { TimeSlotCol } from '../../components';
 
 import { useSteps } from '../../../shared';
+import { useBookings } from '../../hooks';
 
 const TimeSlots = (): JSX.Element => {
     const navigate = useNavigate();
 
+    const { selectedService, selectedTimeSlot } = useBookings();
     const { setCurrentStep } = useSteps();
+
+    const hasSelectedService = !!selectedService;
+    const hasSelectedTimeSlot = !!selectedTimeSlot;
 
     const handlePrev = (): void => {
         navigate('/bookings');
@@ -19,12 +25,16 @@ const TimeSlots = (): JSX.Element => {
         setCurrentStep(3);
     }
 
+    if (!hasSelectedService) return <Navigate to="/bookings" />
+
     return (
         <div className="flex justify-center min-h-[calc(100svh_-_120px)]">
-            <div className="flex flex-col lg:w-7/12 xl:w-6/12 2xl:w-5/12 min-h-[inherit]">
+            <div className="flex flex-col w-full lg:w-7/12 xl:w-6/12 2xl:w-5/12 min-h-[inherit]">
                 <ProgressBar />
 
-                <div className="flex flex-1 flex-row justify-between pt-10">
+                <TimeSlotCol />
+
+                <div className="flex flex-1 flex-row justify-between items-end pt-10">
                     <Button 
                         className="text-lg"
                         onClick={ handlePrev }
@@ -33,8 +43,10 @@ const TimeSlots = (): JSX.Element => {
                     </Button>
 
                     <Button 
-                        className="text-lg"
+                        aria-disabled={ !hasSelectedTimeSlot }
+                        className="text-lg disabled:bg-violet-500"
                         onClick={ handleNext }
+                        disabled={ !hasSelectedTimeSlot }
                     >
                         Siguiente
                     </Button>
