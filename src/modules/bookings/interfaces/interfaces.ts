@@ -18,6 +18,8 @@ export type Category = {
 
 export interface BookingsState {
     categories: Category[];
+    isCategoriesLoading: boolean;
+    isTimeSlotsOfSelectedServiceLoading: boolean;
     selectedService: Service | null;
     timeSlotsOfSelectedService: TimeSlot[];
 }

@@ -1,19 +1,32 @@
-import { FC, PropsWithChildren, useCallback, useMemo, useReducer } from 'react';
+import { FC, PropsWithChildren, useCallback, useEffect, useMemo, useReducer } from 'react';
+
+/* API */
+import { fetchApi } from '../../../api';
 
 /* Context */
 import { BookingsContext, bookingsReducer } from './';
 
 /* Interfaces */
-import { BookingsState, Service } from '../interfaces';
+import { BookingsState, Category, Service } from '../interfaces';
 
 const INITIAL_STATE: BookingsState = {
     categories: [],
+    isCategoriesLoading: true,
+    isTimeSlotsOfSelectedServiceLoading: false,
     selectedService: null,
     timeSlotsOfSelectedService: []
 }
 
 const BookingsProvider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
     const [ state, dispatch ] = useReducer(bookingsReducer, INITIAL_STATE);
+
+    const setIsCategoriesLoading = useCallback((isLoading: boolean): void => {
+        dispatch({ type: '[Bookings] Set is categories loading', payload: { isLoading } });
+    }, []);
+
+    const setIsTimeSlotsOfSelectedServiceLoading = useCallback((isLoading: boolean): void => {
+        dispatch({ type: '[Bookings] Set is time slots of selected service loading', payload: { isLoading } });
+    }, []);
 
     /**
      * A function that loads categories.
@@ -22,10 +35,28 @@ const BookingsProvider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
      */
     const loadCategories = useCallback(async (): Promise<void> => {
         try {
-            dispatch({ type: '[Bookings] Set categories', payload: { categories: [] } });
+            setIsCategoriesLoading(true);
+            const services = await fetchApi<Service[]>('/services', { method: 'GET' });
+
+            const categoriesMap: { [key: string]: Service[] } = {};
+
+            services.forEach((service) => {
+                if (service.category in categoriesMap) categoriesMap[service.category].push(service);
+                else categoriesMap[service.category] = [ service ];
+            });
+
+            const categories: Category[] = Object.keys(categoriesMap).map((category) => ({
+                name: category,
+                services: categoriesMap[category]
+            }))
+
+            dispatch({ type: '[Bookings] Set categories', payload: { categories } });
         } 
         catch (error) {
             console.error(error);
+        }
+        finally {
+            setIsCategoriesLoading(false);
         }
     }, []);
 
@@ -37,11 +68,15 @@ const BookingsProvider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
      */
     const loadTimeSlotsOfSelectedService = useCallback(async (serviceId: number): Promise<void> => {
         try {
+            setIsTimeSlotsOfSelectedServiceLoading(true);
             console.log({ serviceId });
             dispatch({ type: '[Bookings] Set time slots of selected service', payload: { timeSlots: [] } });
         } 
         catch (error) {
             console.error(error);
+        }
+        finally {
+            setIsTimeSlotsOfSelectedServiceLoading(false);
         }
     }, []);
 
@@ -66,6 +101,16 @@ const BookingsProvider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
         loadTimeSlotsOfSelectedService,
         setSelectedService
     ]);
+
+    useEffect(() => {
+        loadCategories();
+    }, []);
+
+    useEffect(() => {
+        if (!state.selectedService) return;
+        loadTimeSlotsOfSelectedService(state.selectedService.id);
+
+    }, [ state.selectedService?.id ])
 
     return (
         <BookingsContext.Provider value={ store }>

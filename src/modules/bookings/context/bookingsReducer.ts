@@ -2,8 +2,10 @@ import { BookingsState, Category, Service, TimeSlot } from '../interfaces';
 
 type BookingsAction = 
     | { type: '[Bookings] Set categories', payload: { categories: Category[] } }
+    | { type: '[Bookings] Set is categories loading', payload: { isLoading: boolean } }
+    | { type: '[Bookings] Set is time slots of selected service loading', payload: { isLoading: boolean } }
     | { type: '[Bookings] Set selected service', payload: { service: Service } }
-    | { type: '[Bookings] Set time slots of selected service', payload: { timeSlots: TimeSlot[] } };
+    | { type: '[Bookings] Set time slots of selected service', payload: { timeSlots: TimeSlot[] } }
 
 /**
  * Reducer function for managing bookings state.
@@ -18,6 +20,18 @@ const bookingsReducer = (state: BookingsState, action: BookingsAction): Bookings
             return {
                 ...state,
                 categories: action.payload.categories
+            }
+
+        case '[Bookings] Set is categories loading':
+            return {
+                ...state,
+                isCategoriesLoading: action.payload.isLoading
+            }
+
+        case '[Bookings] Set is time slots of selected service loading':
+            return {
+                ...state,
+                isTimeSlotsOfSelectedServiceLoading: action.payload.isLoading
             }
 
         case '[Bookings] Set selected service':
