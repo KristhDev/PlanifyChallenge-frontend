@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { IoAdd, IoRemove } from 'react-icons/io5';
 import clsx from 'clsx';
 
 import { ServiceCard } from '../ServiceCard';
 
-export const CategoryAcordion = (): JSX.Element => {
+import { CategoryAcordionProps } from './interfaces';
+
+export const CategoryAcordion: FC<CategoryAcordionProps> = ({ category }): JSX.Element => {
     const [ openAcordion, setOpenAcordion ] = useState<boolean>(false);
 
     return (
@@ -14,7 +16,7 @@ export const CategoryAcordion = (): JSX.Element => {
                 onClick={ () => setOpenAcordion(!openAcordion) }
                 className="bg-neutral-200 py-2 px-3 text-lg text-violet-600 font-bold rounded-xl cursor-pointer flex items-center justify-between w-full"
             >
-                Manos y pies
+                { category.name }
                 <IoAdd size={ 24 } className={ clsx({ 'hidden': openAcordion }) } />
                 <IoRemove size={ 24 } className={ clsx({ 'hidden': !openAcordion }) } />
 
@@ -29,8 +31,12 @@ export const CategoryAcordion = (): JSX.Element => {
                 }
             >
                 <div className={ clsx("overflow-hidden flex flex-col gap-4 duration-300 px-2", { 'p-2  mt-4': openAcordion  }) }>
-                    <ServiceCard />
-                    <ServiceCard />
+                    { category.services.map((service, index) => (
+                        <ServiceCard 
+                            key={ `${ service.name }-${ index }` } 
+                            service={ service } 
+                        />
+                    )) }
                 </div>
             </div>
         </div>
