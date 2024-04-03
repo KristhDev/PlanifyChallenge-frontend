@@ -6,7 +6,7 @@ const links = [
     {
         label: 'Reservar',
         icon: <IoCalendarNumber size={ 24 } />,
-        to: '/'
+        to: '/bookings'
     },
     {
         label: 'Mis turnos',
