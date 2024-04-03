@@ -70,7 +70,7 @@ const BookingsProvider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
         try {
             setIsTimeSlotsOfSelectedServiceLoading(true);
 
-            const timeSlots = await fetchApi<TimeSlot[]>(`/times-slots?serviceId=${ serviceId }`, { method: 'GET' });
+            const timeSlots = await fetchApi<TimeSlot[]>(`/time-slots?serviceId=${ serviceId }`, { method: 'GET' });
 
             dispatch({ type: '[Bookings] Set time slots of selected service', payload: { timeSlots } });
         } 
