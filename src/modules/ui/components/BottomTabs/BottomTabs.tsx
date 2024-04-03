@@ -17,7 +17,7 @@ const links = [
 
 export const BottomTabs = (): JSX.Element => {
     return (
-        <nav className="bg-white w-full fixed bottom-0 left-0">
+        <nav className="bg-white w-full fixed bottom-0 left-0 md:hidden">
             <ul className="flex items-center justify-around gap-4">
                 { links.map((link, index) => (
                     <li key={ `${ link.label }-${ index }` }>
