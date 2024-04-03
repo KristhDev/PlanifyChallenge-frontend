@@ -1,6 +1,7 @@
 import { FC, PropsWithChildren } from 'react';
 
 /* Modules */
+import { BookingsProvider } from '../modules/bookings';
 import { StepsProvider } from '../modules/shared';
 
 /* Utils */
@@ -12,7 +13,9 @@ const Provider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
             steps={ serviceSteps }
             currentStep={ serviceSteps[0] }
         >
-            { children }
+            <BookingsProvider>
+                { children }
+            </BookingsProvider>
         </StepsProvider>
     );
 }
