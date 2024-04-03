@@ -25,7 +25,10 @@ const TimeSlots = (): JSX.Element => {
         setCurrentStep(3);
     }
 
-    if (!hasSelectedService) return <Navigate to="/bookings" />
+    if (!hasSelectedService) {
+        setCurrentStep(1);
+        return (<Navigate to="/bookings" />);
+    }
 
     return (
         <div className="flex justify-center min-h-[calc(100svh_-_120px)]">
