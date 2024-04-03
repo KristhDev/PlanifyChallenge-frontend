@@ -4,7 +4,7 @@ import { RouteObject } from 'react-router-dom';
 import { bookingsRoutesPaths } from './routes';
 
 /* Pages */
-import { Bookings, TimeSlots } from '../pages';
+import { Bookings, Summary, TimeSlots } from '../pages';
 
 export const bookingsRoutes: RouteObject[] = [
     {
@@ -14,5 +14,9 @@ export const bookingsRoutes: RouteObject[] = [
     {
         path: bookingsRoutesPaths.TIME_SLOTS,
         element: (<TimeSlots />)
+    },
+    {
+        path: bookingsRoutesPaths.SUMMARY,
+        element: (<Summary />)
     }
 ];
