@@ -10,6 +10,7 @@ export default mergeConfig(vitestConfig, defineConfig({
             reportsDirectory: './tests/coverage',
         },
         environment: 'jsdom',
-        globals: true
+        globals: true,
+        reporters: 'verbose'
     }
 }));
