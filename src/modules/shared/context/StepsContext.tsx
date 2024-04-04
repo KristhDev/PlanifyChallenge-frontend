@@ -1,10 +1,6 @@
 import { createContext } from 'react';
 
-import { StepsState } from '../interfaces';
-
-export interface StepsContextProps extends StepsState {
-    setCurrentStep: (step: number) => void;
-}
+import { StepsContextProps } from '../interfaces';
 
 const StepsContext = createContext<StepsContextProps>({} as StepsContextProps);
 

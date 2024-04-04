@@ -4,9 +4,7 @@ import { FC, PropsWithChildren, useCallback, useMemo, useState } from 'react';
 import { StepsContext } from './';
 
 /* Interfaces */
-import { Step, StepsState } from '../interfaces';
-
-export interface StepsProviderProps extends StepsState {}
+import { Step, StepsProviderProps } from '../interfaces';
 
 const StepsProvider: FC<PropsWithChildren<StepsProviderProps>> = ({ children, currentStep, steps }): JSX.Element => {
     const [ currentStepState, setCurrentStepState ] = useState<Step>(currentStep);
