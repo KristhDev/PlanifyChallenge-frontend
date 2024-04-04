@@ -1,1 +1,1 @@
-export { default as TimeSlots } from './TimeSlots';
+export * from './TimeSlots'

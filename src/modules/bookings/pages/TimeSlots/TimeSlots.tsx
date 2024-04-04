@@ -6,7 +6,7 @@ import { TimeSlotCol } from '../../components';
 import { useSteps } from '../../../shared';
 import { useBookings } from '../../hooks';
 
-const TimeSlots = (): JSX.Element => {
+export const TimeSlots = (): JSX.Element => {
     const navigate = useNavigate();
 
     const { selectedService, selectedTimeSlot } = useBookings();
@@ -58,5 +58,3 @@ const TimeSlots = (): JSX.Element => {
         </div>
     );
 }
-
-export default TimeSlots;
