@@ -10,6 +10,7 @@ export const ProgressBar = (): JSX.Element => {
             <div className="bg-neutral-400 rounded-xl h-8 w-full">
                 <div 
                     className="bg-violet-600 rounded-lg h-8 duration-300"
+                    data-testid="progress-bar-progress"
                     style={{ width: (currentStep.number / steps.length) * 100 + '%' }} 
                 />
             </div>
