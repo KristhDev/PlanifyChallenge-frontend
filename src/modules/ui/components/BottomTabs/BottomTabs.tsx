@@ -11,7 +11,7 @@ const links = [
     {
         label: 'Mis turnos',
         icon: <IoCalendar size={ 24 } />,
-        to: '/my-appointments'
+        to: '/my-shifts'
     },
 ];
 
@@ -24,8 +24,10 @@ export const BottomTabs = (): JSX.Element => {
                         <NavLink
                             className={ ({ isActive }) => clsx(
                                 'py-2 px-4 pb-1 border-b-4 flex flex-col items-center justify-center gap-1',
-                                { 'bg-neutral-100 text-violet-600 border-violet-600': isActive },
-                                { 'text-neutral-800 border-neutral-800': !isActive }
+                                { 
+                                    'bg-neutral-100 text-violet-600 border-violet-600': isActive,
+                                    'text-neutral-800 border-neutral-800': !isActive 
+                                }
                             ) }
                             to={ link.to }
                         >

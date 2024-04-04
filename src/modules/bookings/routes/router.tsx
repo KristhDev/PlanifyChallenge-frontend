@@ -1,4 +1,4 @@
-import { RouteObject } from 'react-router-dom';
+import { Navigate, RouteObject } from 'react-router-dom';
 
 /* Routes */
 import { bookingsRoutesPaths } from './routes';
@@ -18,5 +18,9 @@ export const bookingsRoutes: RouteObject[] = [
     {
         path: bookingsRoutesPaths.SUMMARY,
         element: (<Summary />)
+    },
+    {
+        path: '',
+        element: (<Navigate to="/bookings" replace />)
     }
 ];

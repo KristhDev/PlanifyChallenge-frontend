@@ -1,5 +1,5 @@
 export const bookingsRoutesPaths = {
     BOOKINGS: '',
-    TIME_SLOTS: 'time-slots',
-    SUMMARY: 'summary'
+    SUMMARY: 'summary',
+    TIME_SLOTS: 'time-slots'
 }
