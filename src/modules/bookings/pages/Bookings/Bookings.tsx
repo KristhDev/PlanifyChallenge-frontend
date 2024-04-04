@@ -29,6 +29,8 @@ const Bookings = (): JSX.Element => {
                     </div>
                 ) : (
                     <div className="bg-white border-[1px] border-gray-300 p-2 grid grid-cols-1 rounded-2xl shadow-md">
+                        <h1 className="text-neutral-800 text-xl font-bold p-2">Categorias</h1>
+
                         { categories.map((category, index) => (
                             <CategoryAcordion 
                                 category={ category }

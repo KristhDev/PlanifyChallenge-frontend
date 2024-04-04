@@ -12,7 +12,7 @@ export const ServiceCard: FC<ServiceCardProps> = ({ service }): JSX.Element => {
 
     return (
         <article className="bg-white rounded-lg shadow-md border-[1px] border-neutral-200 p-3">
-            <h2 className="text-neutral-800 text-base mb-2">{ service.name }</h2>
+            <h2 className="text-neutral-800 text-base font-bold mb-2">{ service.name }</h2>
             <p className="text-neutral-500 text-base mb-4">{ service.description }</p>
 
             <div className="flex flex-row justify-end">
