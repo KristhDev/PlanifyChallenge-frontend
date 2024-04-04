@@ -19,7 +19,7 @@ const Bookings = (): JSX.Element => {
     }
 
     return (
-        <div className="flex justify-center min-h-[calc(100svh_-_120px)]">
+        <div className="flex justify-center min-h-[calc(100svh_-_120px)] md:min-h-[calc(100vh_-_184px)]">
             <div className="flex flex-col lg:w-7/12 xl:w-6/12 2xl:w-5/12 min-h-[inherit]">
                 <ProgressBar />
 
@@ -40,7 +40,7 @@ const Bookings = (): JSX.Element => {
                     </div>
                 ) }
 
-                { hasSelectedService && (
+                { (hasSelectedService) && (
                     <div className="flex flex-1 justify-end items-end pt-10">
                         <Button 
                             className="text-lg"

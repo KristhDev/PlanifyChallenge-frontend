@@ -31,13 +31,13 @@ const TimeSlots = (): JSX.Element => {
     }
 
     return (
-        <div className="flex justify-center min-h-[calc(100svh_-_120px)]">
+        <div className="flex justify-center min-h-[calc(100svh_-_120px)] md:min-h-[calc(100vh_-_184px)]">
             <div className="flex flex-col w-full lg:w-7/12 xl:w-6/12 2xl:w-5/12 min-h-[inherit]">
                 <ProgressBar />
 
                 <TimeSlotCol />
 
-                <div className="flex flex-1 flex-row justify-between items-end pt-10">
+                <div className="flex flex-1 flex-row justify-between items-end pt-10 md:justify-evenly">
                     <Button 
                         className="text-lg"
                         onClick={ handlePrev }
