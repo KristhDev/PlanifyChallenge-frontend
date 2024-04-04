@@ -28,7 +28,7 @@ const Bookings = (): JSX.Element => {
                         <Spinner className="w-32 h-32 border-4" />
                     </div>
                 ) : (
-                    <div className="bg-white border-[1px] border-gray-300 p-2 grid grid-cols-1 rounded-2xl shadow-md">
+                    <div className="bg-white border-[1px] border-neutral-200 p-2 grid grid-cols-1 rounded-2xl shadow-md">
                         <h1 className="text-neutral-800 text-xl font-bold p-2">Categorias</h1>
 
                         { categories.map((category, index) => (

@@ -35,7 +35,7 @@ const Summary = (): JSX.Element => {
             <div className="flex flex-col w-full lg:w-7/12 xl:w-6/12 2xl:w-5/12 min-h-[inherit]">
                 <ProgressBar />
 
-                <div className="bg-white border-[1px] border-gray-300 p-4 rounded-2xl shadow-md">
+                <div className="bg-white border-[1px] border-neutral-200 p-4 rounded-2xl shadow-md">
                     <h2 className="text-lg text-neutral-800 mb-2 font-bold">Servicio: { selectedService.name }</h2>
                     <p className="text-neutral-800">Fecha: { date.format(selectedTimeSlot.date, 'DD/MM/YYYY') } { selectedTimeSlot.hour }</p>
                 </div>

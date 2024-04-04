@@ -14,7 +14,7 @@ export const CategoryAcordion: FC<CategoryAcordionProps> = ({ category }): JSX.E
             <button 
                 type="button"
                 onClick={ () => setOpenAcordion(!openAcordion) }
-                className="bg-neutral-200 py-2 px-3 text-lg text-violet-600 font-bold rounded-xl cursor-pointer flex items-center justify-between w-full"
+                className="bg-neutral-100 py-2 px-3 text-lg text-violet-600 font-bold rounded-xl cursor-pointer flex items-center justify-between w-full"
             >
                 { category.name }
                 <IoAdd size={ 24 } className={ clsx({ 'hidden': openAcordion }) } />
