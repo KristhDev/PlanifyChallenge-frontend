@@ -7,3 +7,4 @@ export const stepsMock: Step[] = [
 ];
 
 export const currentStepMock: Step = stepsMock[0];
+export const setCurrentStepMock = vi.fn();
