@@ -14,11 +14,13 @@ export const serviceMock: Service = {
     category: 'Hands and Feet'
 }
 
-export const timeSlotMock: TimeSlot    = {
+export const timeSlotMock: TimeSlot = {
     availableTimeslots: [ '9:00', '9:30', '10:00', '10:30', '11:00' ],
     date: '2024-04-05',
     serviceId: 1
 }
+
+export const timeSlotsOfSelectedServiceMock: TimeSlot[] = [ timeSlotMock ];
 
 export const selectedTimeSlotMock: SelectedTimeSlot = {
     date: '2024-04-05',
