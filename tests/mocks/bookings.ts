@@ -1,4 +1,4 @@
-import { Service } from '../../src/modules/bookings';
+import { SelectedTimeSlot, Service, TimeSlot } from '../../src/modules/bookings';
 
 export const selectedServiceMock: Service = {
     id: 1,
@@ -14,4 +14,17 @@ export const serviceMock: Service = {
     category: 'Hands and Feet'
 }
 
+export const timeSlotMock: TimeSlot    = {
+    availableTimeslots: [ '9:00', '9:30', '10:00', '10:30', '11:00' ],
+    date: '2024-04-05',
+    serviceId: 1
+}
+
+export const selectedTimeSlotMock: SelectedTimeSlot = {
+    date: '2024-04-05',
+    hour: '10:00',
+    serviceId: 1
+}
+
 export const setSelectedServiceMock = vi.fn();
+export const setSelectedTimeSlotMock = vi.fn();
