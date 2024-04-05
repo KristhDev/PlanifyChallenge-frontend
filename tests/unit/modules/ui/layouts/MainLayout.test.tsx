@@ -16,7 +16,7 @@ const router = createMemoryRouter([
     } 
 ], { initialEntries: [ '/bookings' ] });
 
-const renderComponent = () => render(<RouterProvider router={router} />)
+const renderComponent = () => render(<RouterProvider router={ router } />)
 
 describe('Test in <MainLayout /> layout', () => {
     it('should to match snapshot', () => {
