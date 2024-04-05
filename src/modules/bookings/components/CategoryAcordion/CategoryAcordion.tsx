@@ -19,7 +19,6 @@ export const CategoryAcordion: FC<CategoryAcordionProps> = ({ category }): JSX.E
                 { category.name }
                 <IoAdd size={ 24 } className={ clsx({ 'hidden': openAcordion }) } />
                 <IoRemove size={ 24 } className={ clsx({ 'hidden': !openAcordion }) } />
-
             </button>
 
             <div 
