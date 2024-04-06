@@ -1,11 +1,20 @@
 import { FC } from 'react';
 
+/* Components */
 import { Button } from '../../../ui';
 
+/* Hooks */
 import { useBookings } from '../../hooks';
 
+/* Interfaces */
 import { ServiceCardProps } from './interfaces';
 
+/**
+ * Generate a Service Card component for the given service.
+ *
+ * @param {ServiceCardProps} service - The service to display in the card
+ * @return {JSX.Element} The rendered Service Card component
+ */
 export const ServiceCard: FC<ServiceCardProps> = ({ service }): JSX.Element => {
     const { selectedService, setSelectedService } = useBookings();
     const isSelectedService = (service.id === selectedService?.id);

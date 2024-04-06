@@ -2,10 +2,18 @@ import { FC, useState } from 'react';
 import { IoAdd, IoRemove } from 'react-icons/io5';
 import clsx from 'clsx';
 
+/* Components */
 import { ServiceCard } from '../ServiceCard';
 
+/* Interfaces */
 import { CategoryAcordionProps } from './interfaces';
 
+/**
+ * Renders a category accordion component.
+ *
+ * @param {CategoryAcordionProps} category - The category object to display
+ * @return {JSX.Element} The rendered category accordion component
+ */
 export const CategoryAcordion: FC<CategoryAcordionProps> = ({ category }): JSX.Element => {
     const [ openAcordion, setOpenAcordion ] = useState<boolean>(false);
 

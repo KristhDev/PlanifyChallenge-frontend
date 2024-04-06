@@ -1,11 +1,18 @@
 import { useNavigate } from 'react-router-dom';
 
+/* Components */
 import { Button, ProgressBar, Spinner } from '../../../ui';
 import { CategoryAcordion } from '../../components';
 
+/* Hooks */
 import { useBookings } from '../../hooks';
 import { useSteps } from '../../../shared';
 
+/**
+ * Renders the Bookings component, which displays the booking form and handles the navigation logic.
+ *
+ * @return {JSX.Element} The Bookings component
+ */
 const Bookings = (): JSX.Element => {
     const navigate = useNavigate();
 
@@ -13,6 +20,11 @@ const Bookings = (): JSX.Element => {
     const { setCurrentStep } = useSteps();
     const hasSelectedService = !!selectedService;
 
+    /**
+     * A function that handles moving to the next step and updating the current step state.
+     *
+     * @return {void} 
+     */
     const handleNext = (): void => {
         navigate('/bookings/time-slots');
         setCurrentStep(2);

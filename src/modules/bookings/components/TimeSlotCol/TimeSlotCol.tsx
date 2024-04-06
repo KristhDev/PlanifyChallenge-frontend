@@ -1,7 +1,14 @@
+/* Components */
 import { TimeSlotSelector } from '../TimeSlotSelector';
 
+/* Hooks */
 import { useBookings } from '../../hooks';
 
+/**
+ * Renders the TimeSlotCol component which displays upcoming available time slots.
+ *
+ * @return {JSX.Element} The TimeSlotCol component
+ */
 export const TimeSlotCol = (): JSX.Element => {
     const { timeSlotsOfSelectedService } = useBookings();
 

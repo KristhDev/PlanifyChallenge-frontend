@@ -18,6 +18,12 @@ const INITIAL_STATE: BookingsState = {
     timeSlotsOfSelectedService: []
 }
 
+/**
+ * A React functional component that serves as the Bookings Provider.
+ *
+ * @param {PropsWithChildren} children - the children components to be rendered
+ * @return {JSX.Element} the Bookings Provider component
+ */
 const BookingsProvider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
     const [ state, dispatch ] = useReducer(bookingsReducer, INITIAL_STATE);
 

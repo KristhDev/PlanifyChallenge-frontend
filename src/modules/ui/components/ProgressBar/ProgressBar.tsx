@@ -1,5 +1,11 @@
+/* Hooks */
 import { useSteps } from '../../../shared';
 
+/**
+ * Renders a progress bar component based on the current step and total steps.
+ *
+ * @return {JSX.Element} The rendered progress bar component
+ */
 export const ProgressBar = (): JSX.Element => {
     const { currentStep, steps } = useSteps();
 

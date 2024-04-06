@@ -15,6 +15,11 @@ const links = [
     },
 ];
 
+/**
+ * Renders the bottom navigation tabs.
+ *
+ * @return {JSX.Element} The JSX element representing the bottom navigation tabs.
+ */
 export const BottomTabs = (): JSX.Element => {
     return (
         <nav className="bg-white w-full fixed border-t-[1px] border-neutral-200 shadow-[0_0_12px_0_rgba(0,0,0,0.05)] bottom-0 left-0 md:hidden">

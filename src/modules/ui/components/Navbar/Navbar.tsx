@@ -14,6 +14,11 @@ const links = [
     },
 ];
 
+/**
+ * Generates the Navbar component for the application.
+ *
+ * @return {JSX.Element} The Navbar component
+ */
 export const Navbar = (): JSX.Element => {
     return (
         <nav className="hidden bg-white w-full border-b-[1px] border-neutral-200 shadow-lg md:flex px-32">

@@ -6,6 +6,13 @@ import { StepsContext } from './';
 /* Interfaces */
 import { Step, StepsProviderProps } from '../interfaces';
 
+/**
+ * Provider for the management of steps.
+ *
+ * @param {Step} currentStep - The current step.
+ * @param {Step[]} steps - The list of steps.
+ * @return {JSX.Element} - The StepsProvider component.
+ */
 const StepsProvider: FC<PropsWithChildren<StepsProviderProps>> = ({ children, currentStep, steps }): JSX.Element => {
     const [ currentStepState, setCurrentStepState ] = useState<Step>(currentStep);
     const [ stepsState ] = useState<Step[]>(steps);

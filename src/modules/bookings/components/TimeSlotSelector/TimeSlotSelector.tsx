@@ -1,16 +1,33 @@
 import { FC } from 'react';
 
+/* Components */
 import { Button } from '../../../ui';
 
+/* Hooks */
 import { useBookings } from '../../hooks';
 
+/* Interfaces */
 import { TimeSlotSelectorProps } from './interfaces';
 
+/* Utils */
 import { date } from '../../../../utils';
 
+/**
+ * Renders a time slot selector component.
+ *
+ * @param {TimeSlotSelectorProps} timeSlot - the time slot data to display
+ * @return {JSX.Element} the time slot selector component
+ */
 export const TimeSlotSelector: FC<TimeSlotSelectorProps> = ({ timeSlot }): JSX.Element => {
     const { setSelectedTimeSlot, selectedService, selectedTimeSlot } = useBookings();
 
+    /**
+     * Handles the selection of a time slot.
+     *
+     * @param {string} timeSlot - the selected time slot
+     * @param {string} date - the selected date
+     * @return {void} 
+     */
     const handleSelectTimeSlot = (timeSlot: string, date: string): void => {
         setSelectedTimeSlot({ date, hour: timeSlot, serviceId: selectedService?.id! });
     }
