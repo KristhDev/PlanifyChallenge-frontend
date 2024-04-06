@@ -1,7 +1,10 @@
 import { useContext } from 'react';
 
 /* Contexts */
-import { StepsContext, StepsContextProps } from '../context';
+import { StepsContext } from '../context';
+
+/* Interfaces */
+import { StepsContextProps } from '../interfaces';
 
 /**
  * Returns the Steps context props.
