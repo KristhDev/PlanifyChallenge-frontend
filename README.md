@@ -1,10 +1,10 @@
 # PlanifyChallenge
 
 Esta es una prueba técnica para la una postulación de trabajo. Este documento explica cómo levantar el proyecto y correr las 
-pruebas. Puede probar la aplicación aqui: (https://planify-challenge-kristhdev.vercel.app)[https://planify-challenge-kristhdev.vercel.app].
+pruebas. Puede probar la aplicación aqui: [https://planify-challenge-kristhdev.vercel.app](https://planify-challenge-kristhdev.vercel.app).
 
 ## 1. Levantar el proyecto
-Este proyecto usa una API para obener los datos, está se encuentra en el siguiente repositorio: (PlanifyChallenge-backend)[https://github.com/KristhDev/PlanifyChallenge-backend]. Lo puede clonar para ejecutarlo en su equipo o de lo contrario puede usar la url 
+Este proyecto usa una API para obener los datos, está se encuentra en el siguiente repositorio: [PlanifyChallenge-backend](https://github.com/KristhDev/PlanifyChallenge-backend). Lo puede clonar para ejecutarlo en su equipo o de lo contrario puede usar la url 
 del api desplegada ```https://planify-challenge-backend.vercel.app```.
 
 ### 1.1. Clonar el repositorio
@@ -36,7 +36,7 @@ Ya con las dependencias instaladas y con el API corriendo en su equipo o usando 
 pnpm dev
 ```
 
-Y listo ya podrá abrir el proyecto en el navegador (http://localhost:5173)[http://localhost:5173].
+Y listo ya podrá abrir el proyecto en el navegador [http://localhost:5173](http://localhost:5173).
 
 ## 2. Testing
 En el proyecto se realizó el testing para garantizar el correcto funcionamiento del proyecto y la detección de errores.
