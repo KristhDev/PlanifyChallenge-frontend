@@ -33,5 +33,11 @@ export const categoryMock: Category = {
     services: [ serviceMock, serviceMock ]
 }
 
+export const categoriesMock: Category[] = [ 
+    categoryMock,
+    { ...categoryMock, name: 'Nails', },
+    { ...categoryMock, name: 'Makeup', }
+];
+
 export const setSelectedServiceMock = vi.fn();
 export const setSelectedTimeSlotMock = vi.fn();
