@@ -24,7 +24,10 @@ const Bookings = (): JSX.Element => {
                 <ProgressBar />
 
                 { (isCategoriesLoading) ? (
-                    <div className="flex items-center justify-center mt-32">
+                    <div 
+                        className="flex items-center justify-center mt-32"
+                        data-testid="bookings-loading-spinner"
+                    >
                         <Spinner className="w-32 h-32 border-4" />
                     </div>
                 ) : (
