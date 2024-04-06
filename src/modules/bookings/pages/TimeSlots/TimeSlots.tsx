@@ -1,12 +1,19 @@
 import { Navigate, useNavigate } from 'react-router-dom';
 
+/* Components */
 import { Button, ProgressBar } from '../../../ui';
 import { TimeSlotCol } from '../../components';
 
+/* Hooks */
 import { useSteps } from '../../../shared';
 import { useBookings } from '../../hooks';
 
-const TimeSlots = (): JSX.Element => {
+/**
+ * Generates the TimeSlots component for booking appointments.
+ *
+ * @return {JSX.Element} The TimeSlots component
+ */
+export const TimeSlots = (): JSX.Element => {
     const navigate = useNavigate();
 
     const { selectedService, selectedTimeSlot } = useBookings();
@@ -15,11 +22,21 @@ const TimeSlots = (): JSX.Element => {
     const hasSelectedService = !!selectedService;
     const hasSelectedTimeSlot = !!selectedTimeSlot;
 
+    /**
+     * A function that handles going to the previous step and updating the current step.
+     *
+     * @return {void} 
+     */
     const handlePrev = (): void => {
         navigate('/bookings');
         setCurrentStep(1);
     }
 
+    /**
+     * A function that handles the next step in the process.
+     *
+     * @return {void} No return value
+     */
     const handleNext = (): void => {
         navigate('/bookings/summary');
         setCurrentStep(3);
@@ -58,5 +75,3 @@ const TimeSlots = (): JSX.Element => {
         </div>
     );
 }
-
-export default TimeSlots;

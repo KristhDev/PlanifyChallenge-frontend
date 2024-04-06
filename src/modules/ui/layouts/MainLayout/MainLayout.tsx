@@ -3,6 +3,11 @@ import { Outlet } from 'react-router-dom';
 /* Components */
 import { BottomTabs, Navbar } from '../../components';
 
+/**
+ * Main layout component that renders the main content of the application.
+ *
+ * @return {JSX.Element} The main layout JSX element
+ */
 const MainLayout = (): JSX.Element => {
     return (
         <main className="relative bg-neutral-100 min-h-svh flex flex-col justify-between">

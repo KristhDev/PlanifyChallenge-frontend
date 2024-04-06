@@ -1,3 +1,4 @@
+/* Utils */
 import { getEnvs } from '../utils';
 
 const { VITE_API_URL } = getEnvs();

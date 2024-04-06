@@ -1,12 +1,20 @@
 import { Navigate, useNavigate } from 'react-router-dom';
 
+/* Components */
 import { Button, ProgressBar } from '../../../ui';
 
+/* Hooks */
 import { useBookings } from '../../hooks';
 import { useSteps } from '../../../shared';
 
+/* Utils */
 import { date } from '../../../../utils';
 
+/**
+ * Renders a summary component displaying selected service and time slot information.
+ *
+ * @returns {JSX.Element} JSX element representing the summary component
+ */
 const Summary = (): JSX.Element => {
     const navigate = useNavigate();
     const { selectedService, selectedTimeSlot } = useBookings();
@@ -15,11 +23,21 @@ const Summary = (): JSX.Element => {
     const hasSelectedService = !!selectedService;
     const hasSelectedTimeSlot = !!selectedTimeSlot;
 
+    /**
+     * Function to handle going to the previous step in the process.
+     *
+     * @return {void} This function does not return anything.
+     */
     const handlePrev = (): void => {
         navigate('/bookings/time-slots');
         setCurrentStep(2);
     }
 
+    /**
+     * This function handles the confirmation and displays a thank you message, then reloads the window.
+     *
+     * @return {void} 
+     */
     const handleConfirm = (): void => {
         alert('Gracias por su reserva! :D');
         window.location.reload();

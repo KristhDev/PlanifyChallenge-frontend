@@ -2,24 +2,32 @@ import { FC, useState } from 'react';
 import { IoAdd, IoRemove } from 'react-icons/io5';
 import clsx from 'clsx';
 
+/* Components */
 import { ServiceCard } from '../ServiceCard';
 
+/* Interfaces */
 import { CategoryAcordionProps } from './interfaces';
 
+/**
+ * Renders a category accordion component.
+ *
+ * @param {CategoryAcordionProps} category - The category object to display
+ * @return {JSX.Element} The rendered category accordion component
+ */
 export const CategoryAcordion: FC<CategoryAcordionProps> = ({ category }): JSX.Element => {
     const [ openAcordion, setOpenAcordion ] = useState<boolean>(false);
 
     return (
         <div className="p-2">
             <button 
-                type="button"
-                onClick={ () => setOpenAcordion(!openAcordion) }
                 className="bg-neutral-100 py-2 px-3 text-lg text-violet-600 font-bold rounded-xl cursor-pointer flex items-center justify-between w-full"
+                data-testid="category-accordion-button"
+                onClick={ () => setOpenAcordion(!openAcordion) }
+                type="button"
             >
                 { category.name }
                 <IoAdd size={ 24 } className={ clsx({ 'hidden': openAcordion }) } />
                 <IoRemove size={ 24 } className={ clsx({ 'hidden': !openAcordion }) } />
-
             </button>
 
             <div 

@@ -7,6 +7,12 @@ import { StepsProvider } from '../modules/shared';
 /* Utils */
 import { serviceSteps } from '../utils';
 
+/**
+ * Renders the Provider component with StepsProvider and BookingsProvider.
+ *
+ * @param {PropsWithChildren} children - The child components to be rendered within the Provider.
+ * @return {JSX.Element} The rendered Provider component.
+ */
 const Provider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
     return (
         <StepsProvider 
