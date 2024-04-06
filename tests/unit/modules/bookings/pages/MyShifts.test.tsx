@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 
+/* Modules */
 import { MyShifts } from '../../../../../src/modules/bookings';
 
 const renderComponent = () => render(<MyShifts />);

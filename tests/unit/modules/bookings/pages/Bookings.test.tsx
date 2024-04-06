@@ -2,13 +2,17 @@ import { Mock } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+/* Setups */
 import { rrdUseNavigateMock } from '../../../../setups';
 
+/* Mocks */
 import { categoriesMock, selectedServiceMock, setCurrentStepMock, setSelectedServiceMock } from '../../../../mocks';
 
+/* Modules */
 import { Bookings, useBookings } from '../../../../../src/modules/bookings';
 import { useSteps } from '../../../../../src/modules/shared';
 
+/* Utils */
 import { serviceSteps } from '../../../../../src/utils';
 
 const renderPage = () => render(<Bookings />);

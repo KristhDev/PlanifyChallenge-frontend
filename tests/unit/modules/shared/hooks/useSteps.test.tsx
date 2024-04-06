@@ -1,7 +1,9 @@
 import { waitFor } from '@testing-library/react';
 
+/* Setups */
 import { renderUseSteps } from '../../../../setups';
 
+/* Mocks */
 import { currentStepMock, stepsMock } from '../../../../mocks';
 
 describe('Test in useSteps hook', () => {

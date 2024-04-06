@@ -2,13 +2,17 @@ import { Mock } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+/* Setups */
 import { rrdNavigateMock, rrdUseNavigateMock } from '../../../../setups';
 
+/* Mocks */
 import { selectedServiceMock, selectedTimeSlotMock, setCurrentStepMock, timeSlotsOfSelectedServiceMock } from '../../../../mocks';
 
+/* Modules */
 import { TimeSlots, useBookings } from '../../../../../src/modules/bookings';
 import { useSteps } from '../../../../../src/modules/shared';
 
+/* Utils */
 import { serviceSteps } from '../../../../../src/utils';
 
 const renderPage = () => render(<TimeSlots />);

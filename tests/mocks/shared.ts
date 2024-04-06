@@ -1,3 +1,4 @@
+/* Interfaces */
 import { Step } from '../../src/modules/shared';
 
 export const stepsMock: Step[] = [

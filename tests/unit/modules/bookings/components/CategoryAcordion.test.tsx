@@ -1,10 +1,11 @@
 import { Mock } from 'vitest';
-
-import { categoryMock, selectedServiceMock, setSelectedServiceMock } from '../../../../mocks';
-
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+/* Mocks */
+import { categoryMock, selectedServiceMock, setSelectedServiceMock } from '../../../../mocks';
+
+/* Modules */
 import { CategoryAcordion, useBookings } from '../../../../../src/modules/bookings';
 
 vi.mock('../../../../../src/modules/bookings/hooks/useBookings.ts');

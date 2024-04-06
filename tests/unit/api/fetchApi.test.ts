@@ -1,7 +1,10 @@
+/* Mocks */
 import { fetchSpy } from '../../mocks';
 
+/* Modules */
 import { fetchApi } from '../../../src/api';
 
+/* Interfaces */
 import { Service } from '../../../src/modules/bookings';
 
 describe('Test in fetchApi', () => {

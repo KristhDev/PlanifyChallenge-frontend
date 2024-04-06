@@ -1,7 +1,9 @@
 import { waitFor } from '@testing-library/react';
 
+/* Setups */
 import { renderUseBookings } from '../../../../../setups';
 
+/* Mocks */
 import { selectedTimeSlotMock } from '../../../../../mocks';
 
 describe('Test in useBookings hook - setSelectedTimeSlot', () => {

@@ -1,8 +1,10 @@
 import { Mock } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
+/* Mocks */
 import { currentStepMock, stepsMock } from '../../../../mocks';
 
+/* Modules */
 import { ProgressBar } from '../../../../../src/modules/ui';
 import { useSteps } from '../../../../../src/modules/shared';
 

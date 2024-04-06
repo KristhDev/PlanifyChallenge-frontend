@@ -1,3 +1,4 @@
+/* Interfaces */
 import { Category, SelectedTimeSlot, Service, TimeSlot } from '../../src/modules/bookings';
 
 export const selectedServiceMock: Service = {

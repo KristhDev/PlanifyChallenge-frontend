@@ -1,3 +1,4 @@
+/* Utils */
 import { date } from '../../../src/utils';
 
 describe('Test in date util', () => {

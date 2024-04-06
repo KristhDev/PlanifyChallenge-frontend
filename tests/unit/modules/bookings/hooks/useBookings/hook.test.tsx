@@ -1,3 +1,4 @@
+/* Setups */
 import { renderUseBookings } from '../../../../../setups';
 
 describe('Test in useBookings hook - hook properties', () => {

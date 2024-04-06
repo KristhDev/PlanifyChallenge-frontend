@@ -2,8 +2,10 @@ import { Mock } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+/* Mocks */
 import { selectedServiceMock, serviceMock, setSelectedServiceMock } from '../../../../mocks';
 
+/* Modules */
 import { Service, ServiceCard, useBookings } from '../../../../../src/modules/bookings';
 
 const renderComponent = (service: Service) => render(

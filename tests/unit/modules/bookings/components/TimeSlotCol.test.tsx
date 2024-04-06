@@ -1,8 +1,10 @@
 import { Mock } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
+/* Mocks */
 import { selectedServiceMock, setSelectedTimeSlotMock, timeSlotsOfSelectedServiceMock } from '../../../../mocks';
 
+/* Modules */
 import { TimeSlotCol, useBookings } from '../../../../../src/modules/bookings';
 
 const renderComponent = () => render(<TimeSlotCol />);

@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 
+/* Modules */
 import { Spinner } from '../../../../../src/modules/ui';
 
 const renderComponent = () => render(<Spinner className="border-red-500" />);

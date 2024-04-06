@@ -2,6 +2,7 @@ import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+/* Modules */
 import { BottomTabs } from '../../../../../src/modules/ui';
 
 const router = createMemoryRouter([
